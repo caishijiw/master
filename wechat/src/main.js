@@ -15,6 +15,14 @@ Vue.use(Vant);
  *引入css
  */
 import  "./assets/css/user.css"
+/**
+ *引入vue-awesome-swiper
+ */
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper);
+// require styles
+import 'swiper/dist/css/swiper.css'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
