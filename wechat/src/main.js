@@ -11,7 +11,10 @@ Vue.config.productionTip = false
 import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
-
+/**
+ *引入css
+ */
+import  "./assets/css/user.css"
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -12,7 +12,7 @@ export default new Router({
       // redirect: '/hometab',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
-        title: '景区简介',
+        title: '采石矶概况',
       },
     },
     {
