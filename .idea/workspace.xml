@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ff55b44-0395-4c6b-9475-c9910474cf70" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/wechat/src/pages/ScenicIntroduction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/pages/ScenicIntroduction.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/assets/images/introuduce.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/pages/spotIntroduction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/pages/spotIntroduction.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1263,7 +1268,7 @@
       <path value="$PROJECT_DIR$/wechat/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="3" />
     <option name="y" value="7" />
     <option name="width" value="1400" />
@@ -1352,7 +1357,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566461814543</updated>
-      <workItem from="1566461816067" duration="680000" />
+      <workItem from="1566461816067" duration="756000" />
     </task>
     <task id="LOCAL-00001" summary="8-22 16:18 na ya na">
       <created>1566461903050</created>
@@ -1365,10 +1370,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="680000" />
+    <option name="totallyTimeSpent" value="756000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
