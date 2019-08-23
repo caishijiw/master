@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'spotIntroduction',
-      // redirect: '/hometab',
+      redirect: '/guideTour',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',

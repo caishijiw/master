@@ -5,3 +5,10 @@ body,html{
   width: 100%;
   height: 100%;
 }
+.swiper-container   .van-swipe__indicator.van-swipe__indicator--active{
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.swiper-container .van-swipe__indicators{
+  background-color: transparent !important;
+}

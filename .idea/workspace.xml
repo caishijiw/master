@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ff55b44-0395-4c6b-9475-c9910474cf70" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/wechat/src/pages/ScenicIntroduction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/pages/ScenicIntroduction.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/api/public.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/assets/font/PingFangRegular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/assets/font/PingFangRegular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/assets/font/PingFangRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wechat/src/assets/font/fontStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/pages/attractionsDetails.vue" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/pages/attractionsDetails.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/pages/guideTour.vue" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/pages/guideTour.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wechat/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/wechat/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1263,11 +1274,10 @@
       <path value="$PROJECT_DIR$/wechat/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="3" />
-    <option name="y" value="7" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="1376" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -1352,7 +1362,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1566461814543</updated>
-      <workItem from="1566461816067" duration="680000" />
+      <workItem from="1566461816067" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="8-22 16:18 na ya na">
       <created>1566461903050</created>
@@ -1361,14 +1371,22 @@
       <option name="project" value="LOCAL" />
       <updated>1566461903050</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge branch 'master' of https://github.com/caishijiw/master&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit.">
+      <created>1566520815571</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566520815571</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="680000" />
+    <option name="totallyTimeSpent" value="1409000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1379,11 +1397,11 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.3292683" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="right" id="Database" />
       <window_info id="Learn" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1408,6 +1426,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="8-22 16:18 na ya na" />
-    <option name="LAST_COMMIT_MESSAGE" value="8-22 16:18 na ya na" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/caishijiw/master&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/caishijiw/master&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit." />
   </component>
 </project>

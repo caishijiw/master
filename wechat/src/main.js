@@ -15,6 +15,7 @@ Vue.use(Vant);
  *引入css
  */
 import  "./assets/css/user.css"
+import  './assets/font/fontStyle.css'
 /**
  *引入vue-awesome-swiper
  */
