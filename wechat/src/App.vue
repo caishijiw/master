@@ -19,6 +19,9 @@ export default {
   color: #2c3e50;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6cfad0bd18e88f973492a066efa50681a28854a4
 }
 </style>
