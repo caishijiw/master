@@ -10,7 +10,7 @@
         <div class="gallery-wrap">
           <div class="gallery-content">
             <div class="imgs-wrap" :style="{'width':width }">
-              <div class="img-item" v-for="(item,index) in imgArray">
+              <div class="img-item" v-for="(item,index) in imgArray" v-key="index">
                 <img :src="item" alt="">
               </div>
             </div>
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="spot-content-item">
-        <span class="item-title">景点简介</span>
+        <span class="item-title margin-bottom">景点简介</span>
         <div class="spot-detail-introduction">
           三台阁分为五层，高度大约为30米，具有典型的徽派建筑特色。“三台阁”匾额是由著名的书法家沈鹏先生所题写。<br>
           三台阁始建于明朝崇祯十五年，由当涂人曹履吉捐资建造的。三台阁的历史悠久，历经了清顺治、康熙、雍正、乾隆四个朝代，大约有120多年，到了乾隆年间毁于兵火，今天的三台阁是1999年在原址上修复而成。
@@ -27,7 +27,7 @@
 
       </div>
       <div class="spot-content-item">
-        <span class="item-title">周边推荐</span>
+        <span class="item-title margin-bottom">周边推荐</span>
         <div class="recommended-wrap">
         <strong class="recommended">景点名称</strong>
         <strong class="recommended">景点名称</strong>
@@ -106,12 +106,15 @@
 
   .item-title {
     font-size: 0.373rem;
-    font-family: PingFangSC;
+    /*font-family: PingFangSC;*/
     font-weight: 500;
     color: rgba(72, 72, 72, 1);
     line-height: 0.53rem;
     margin-bottom: 0.13rem;
     display: block;
+  }
+  .item-title.margin-bottom{
+    margin-bottom: 0.32rem;
   }
 
   .gallery-wrap {
@@ -157,7 +160,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 0.32rem;
-    font-family: PingFangSC;
+    /*font-family: PingFangSC;*/
     font-weight: 400;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -174,7 +177,7 @@
     display: block;
     color: #484848;
     font-size: 0.32rem;
-    font-family: PingFangSC;
+    /*font-family: PingFangSC;*/
     font-weight: 500;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -187,11 +190,12 @@
   }
   .recommended{
     font-size: 0.32rem;
-    font-family:PingFangSC;
+    /*font-family:PingFangSC;*/
     font-weight:500;
     color:rgba(48,154,159,1);
     line-height:0.44rem;
     font-weight: normal;
+    margin-right: 0.32rem;
   }
   .recommended-wrap{
     padding-left: 0.44rem;
@@ -199,6 +203,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
   }
+
 
 </style>
