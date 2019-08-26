@@ -10,7 +10,7 @@
         <div class="gallery-wrap">
           <div class="gallery-content">
             <div class="imgs-wrap" :style="{'width':width }">
-              <div class="img-item" v-for="(item,index) in imgArray" v-key="index">
+              <div class="img-item" v-for="(item,index) in imgArray" :key="index">
                 <img :src="item" alt="">
               </div>
             </div>
