@@ -21,6 +21,10 @@ import  './assets/font/fontStyle.css'
  */
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper);
+/**
+ * 引入moment
+ */
+import moment from 'moment'//导入文件
 // require styles
 import 'swiper/dist/css/swiper.css'
 router.beforeEach((to, from, next) => {

@@ -9,6 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'ScenicIntroduction',
+      redirect: '/ticketOrder',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',
