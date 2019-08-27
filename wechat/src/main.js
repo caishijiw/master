@@ -10,12 +10,14 @@ Vue.config.productionTip = false
  */
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import 'vant/lib/icon/local.css';
 Vue.use(Vant);
 /**
  *引入css
  */
 import  "./assets/css/user.css"
 import  './assets/font/fontStyle.css'
+import  './assets/font/iconfont.css'
 /**
  *引入vue-awesome-swiper
  */
@@ -27,13 +29,11 @@ Vue.use(VueAwesomeSwiper);
 import moment from 'moment'//导入文件
 // require styles
 import 'swiper/dist/css/swiper.css'
-router.beforeEach((to, from, next) => {
-  /* 路由发生变化修改页面title */
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
-  next()
-})
+/**
+ *引入vconsole
+ */
+import VConsole from 'vconsole'
+var vConsole = new VConsole()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

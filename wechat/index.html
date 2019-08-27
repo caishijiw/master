@@ -9,6 +9,7 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="https://webapi.amap.com/maps?v=1.4.14&key=d9f4ac1ca6b539a91a673bcf5bff06d5&callback=init"></script>
   <script src="./static/utils/flexible.js"></script>
 
   <style>
@@ -21,5 +22,15 @@
       font-size: 37.5px;
     }
   </style>
-  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=d9f4ac1ca6b539a91a673bcf5bff06d5"></script>
+  <script>
+      function init(){
+          var map = new AMap.Map('container', {
+              center: [117.000923, 36.675807],
+              zoom: 6
+          });
+          map.plugin(["AMap.ToolBar"], function() {
+              map.addControl(new AMap.ToolBar());
+          });
+      }
+  </script>
   </html>

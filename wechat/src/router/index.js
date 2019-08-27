@@ -7,6 +7,16 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/maptest',
+      name: 'maptest',
+      // redirect: '/hometab',
+      component: resolve => require(["@/pages/maptest"], resolve),
+      meta: {
+        title: '测试地图',
+
+      },
+    },
+    {
       path: '/',
       name: 'ScenicIntroduction',
       redirect: '/ticketOrder',

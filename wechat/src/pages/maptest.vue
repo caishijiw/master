@@ -15,7 +15,7 @@
         mydestination: {
           lat: 30.249089,
           lng: 120.127342,
-          name: "我家"
+          name: "我的位置"
         },
         destination: {
           location: {

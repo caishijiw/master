@@ -2,7 +2,7 @@
 <div class="wrap">
   <div class="swiper-container">
     <van-swipe :autoplay="3000" indicator-color="transparents" :loop="true">
-      <van-swipe-item v-for="(item,index) in  bannerList"><img :src="item" alt=""></van-swipe-item>
+      <van-swipe-item v-for="(item,index) in  bannerList" :key="index"><img :src="item" alt=""></van-swipe-item>
     </van-swipe>
   </div>
     <!--swiper结束-->
