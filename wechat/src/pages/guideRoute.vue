@@ -121,7 +121,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-
   .step-line-wrap:after {
     content: "";
     background: #9BDCE9;
@@ -132,35 +131,25 @@
     left: 0;
     bottom: 0;
     right: 0;
-
   }
-
   .step-line-wrap img {
     width: 0.426rem;
     height: 0.426rem;
-
   }
-
   .router-item-title {
     font-size: 0.373rem;
     font-family: PingFangSC-regular;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
     line-height: 0.3rem;
-
   }
-
   .router-item {
     height: 3.3rem;
-
     width: 100%;
-
   }
-
   .router-title.router-item {
     height: 1.5rem;
   }
-
   .view-detail {
     font-size: 0.32rem;
     font-family: PingFangSC-regular;
@@ -169,12 +158,10 @@
     line-height: 0.44rem;
     float: right;
   }
-
   .spot-content {
     width: 100%;
     margin-top: 0.2rem;
   }
-
   .spot-content .img-wrap {
     width: 2.13rem;
     height: 2.13rem;
@@ -184,12 +171,10 @@
     overflow: hidden;
     float: left;
   }
-
   .spot-content .img-wrap img {
     width: 100%;
     height: 100%;
   }
-
   .spot-discribe {
     width: calc(100% - 2.13rem);
     height: 100%;

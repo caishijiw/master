@@ -87,7 +87,7 @@
     top: 0;
     left: 0;
     font-size: 0.533rem;
-    font-family: PingFangSC;
+    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     line-height: 2.13rem;
@@ -106,7 +106,7 @@
 
   .item-title {
     font-size: 0.373rem;
-    /*font-family: PingFangSC;*/
+    font-family:PingFangSC-Medium;
     font-weight: 500;
     color: rgba(72, 72, 72, 1);
     line-height: 0.53rem;
@@ -160,7 +160,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 0.32rem;
-    /*font-family: PingFangSC;*/
+    font-family: PingFangSC-regular;
     font-weight: 400;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -177,7 +177,7 @@
     display: block;
     color: #484848;
     font-size: 0.32rem;
-    /*font-family: PingFangSC;*/
+    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -187,10 +187,11 @@
   .address i {
     color: #666666;
     font-style: normal;
+    font-family: PingFangSC-regular;
   }
   .recommended{
     font-size: 0.32rem;
-    /*font-family:PingFangSC;*/
+    font-family:PingFangSC-Medium;
     font-weight:500;
     color:rgba(48,154,159,1);
     line-height:0.44rem;
@@ -198,7 +199,7 @@
     margin-right: 0.32rem;
   }
   .recommended-wrap{
-    padding-left: 0.44rem;
+    padding:  0 0.44rem;
     border:1px solid transparent;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

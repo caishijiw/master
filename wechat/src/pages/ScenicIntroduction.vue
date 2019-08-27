@@ -42,7 +42,7 @@
     width: 100%;
     height: 100%;
     position: relative;
-    overflow: hidden;
+
   }
   .swiper-container{
     position: absolute;
@@ -101,7 +101,7 @@ text-align: center;
   text-indent:0.8rem ;
   display: block;
   font-size:0.346rem;
-  /*font-family:PingFangSC;*/
+  font-family:PingFangSC-regular;
   font-weight:400;
   color:rgba(0,0,0,1);
   line-height:0.4933rem;
@@ -122,7 +122,7 @@ text-align: center;
     font-weight:400;
     color:rgba(255,255,255,1);
     letter-spacing: 1px ;
-
+font-family: PingFangSC-regular;
   }
   .ask i{
     font-style: normal;
@@ -150,6 +150,6 @@ text-align: center;
     font-size:0.426rem;
     color:rgba(255,255,255,1);
     line-height:0.6rem;
-
+font-family: PingFangSC-Medium;
   }
 </style>

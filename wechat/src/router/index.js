@@ -8,8 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'spotIntroduction',
-      redirect: '/guideRoute',
+      name: 'ScenicIntroduction',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',
