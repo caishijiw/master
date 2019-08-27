@@ -1,7 +1,7 @@
 <template>
 <div class="wrap">
   <div class="swiper-container">
-    <van-swipe :autoplay="3000" indicator-color="transparents" :loop="true">
+    <van-swipe :autoplay="4000" indicator-color="transparents" :loop="true">
       <van-swipe-item v-for="(item,index) in  bannerList" :key="index"><img :src="item" alt=""></van-swipe-item>
     </van-swipe>
   </div>
@@ -14,7 +14,7 @@
  <span class="introduction-span">采石矶现为国家重点风景名胜区、国家AAAA级旅游区。采石矶自然景观独特，人文资源丰厚，这里有全国最大的李白纪念馆，驰誉江南的三元洞，气势宏伟的三台阁，有“当代草圣”林散之艺术馆，谪仙园古建筑群，古栈道，翠螺湾等众多景点。游人可泛舟江上，赏翠螺秀色；或策杖古栈道，寻觅“大脚印”；或登三台阁，眺“天门晓日”，叹“大江东去”。采石矶是中外游客凭吊诗魂、寻觅李白游踪、体味诗词意境、领略山川之美的绝佳去处。</span>
   </div>
   <!--咨询热线-->
-  <button class="ask">咨询热线: <i>210142</i></button>
+  <button class="ask">咨询热线: <a href="tel:210142">210142</a></button>
   <!--底部二维码-->
   <div class="footer-wrap">
     <img src="" alt="">
@@ -29,8 +29,8 @@
       data(){
           return{
             bannerList:[
-              'http://pic1.win4000.com/wallpaper/2018-08-16/5b74e5a9d896f.jpg',
-              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566473077347&di=4080065ffde3d4e98dee0ae6d49915db&imgtype=0&src=http%3A%2F%2Fpic37.nipic.com%2F20140110%2F8821914_135241051000_2.jpg'
+         'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=541214762,1950046713&fm=26&gp=0.jpg',
+         'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566895705051&di=baf42329ea54d924986857198d854a00&imgtype=0&src=http%3A%2F%2Fimg.itc.cn%2Fphoto%2FjTVlAgb7C30'
             ]
           }
       }
@@ -41,7 +41,7 @@
   .wrap{
     width: 100%;
     height: 100%;
-    position: relative;
+
 
   }
   .swiper-container{
@@ -50,8 +50,7 @@
     left: 0;
     width: 100%;
     height: 5.68rem;
-    background: royalblue;
-    z-index: -1;
+
   }
   .swiper-container  .van-swipe{
 width: 100%;
@@ -59,7 +58,7 @@ width: 100%;
   }
   .swiper-container .van-swipe-item,   .swiper-container .van-swipe-item img{
     width: 100%;
-    height: 5.68rem;
+    height: 100%;
   }
  .main-content{
    height:12.05rem;
@@ -76,6 +75,7 @@ width: 100%;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
+   font-family: PingFangSC-regular;
   }
   .page-title{
     display: inline-block;
@@ -124,9 +124,10 @@ text-align: center;
     letter-spacing: 1px ;
 font-family: PingFangSC-regular;
   }
-  .ask i{
+  .ask a{
     font-style: normal;
     font-size: 0.4266rem;
+    color:rgba(255,255,255,1);
   }
   .footer-wrap{
    height: 6.88rem;
