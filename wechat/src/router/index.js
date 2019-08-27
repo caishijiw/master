@@ -18,8 +18,7 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'spotIntroduction',
-      redirect: '/guideTour',
+      name: 'ScenicIntroduction',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',
@@ -45,16 +44,7 @@ export default new Router({
 
       },
     },
-    {
-      path: '/AppropriateIndex',
-      name: 'AppropriateIndex',
-      // redirect: '/hometab',
-      component: resolve => require(["@/pages/AppropriateIndex"], resolve),
-      meta: {
-        title: '宜游指数',
 
-      },
-    },
     {
       path: '/attractionsDetails',
       name: 'attractionsDetails',

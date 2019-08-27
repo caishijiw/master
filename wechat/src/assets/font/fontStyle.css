@@ -1,10 +1,14 @@
 @font-face {
-  font-family: 'PingFangSC';
+  font-family: 'PingFangSC-regular';
   src: url('PingFangRegular.ttf'),
   url('PingFangRegular.otf'),
   url('PingFangRegular.eot');
 
 }
-body,html{
-  /*font-family:'PingFangSC' ;*/
+@font-face {
+  font-family: 'PingFangSC-Medium';
+  src: url('PingFangSC-Medium.ttf'),
+  url('PingFangSC-Medium.otf'),
+  url('PingFangSC-Medium.eot');
+
 }
