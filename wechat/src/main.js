@@ -10,12 +10,14 @@ Vue.config.productionTip = false
  */
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import 'vant/lib/icon/local.css';
 Vue.use(Vant);
 /**
  *引入css
  */
 import  "./assets/css/user.css"
 import  './assets/font/fontStyle.css'
+import  './assets/font/iconfont.css'
 /**
  *引入vue-awesome-swiper
  */
@@ -23,7 +25,11 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper);
 // require styles
 import 'swiper/dist/css/swiper.css'
-
+/**
+ *引入vconsole
+ */
+import VConsole from 'vconsole'
+var vConsole = new VConsole()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

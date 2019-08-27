@@ -1,10 +1,21 @@
 <template>
-  <div style="width:100%;height:100%">
+  <div style="width:100%;height:100%;position:relative;">
+    <div class="float">
+      <div class="guanguang">
+        <img src="../assets/images/guanguang.png" alt srcset />
+        <div>宜游指数</div>
+      </div>
+      <div class="xian"></div>
+      <div class="xianlu">
+        <img src="../assets/images/xianlu.png" alt srcset />
+        <div>线路推荐</div>
+      </div>
+    </div>
     <div class="map_surrounding" id="map_surrounding">
       <div id="surrounding"></div>
       <div class="card">
         <div class="Navigation">
-            <img src="../assets/images/Navigation.png" alt="">
+          <img src="../assets/images/Navigation.png" alt />
         </div>
         <div style="width:91%;margin:0 auto;padding-bottom:0.373rem;">
           <div class="parkName">景点名称</div>
@@ -12,16 +23,17 @@
             <div class="park_image">
               <img src="https://cn.vuejs.org/images/logo.png" alt />
             </div>
-            <div class="park_flex">
-                介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍</div>
+            <div
+              class="park_flex"
+            >介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍</div>
           </div>
         </div>
         <van-tabbar v-model="active">
-  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="service-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="warning-o">标签</van-tabbar-item>
-</van-tabbar>
+          <van-tabbar-item class-prefix="my-icon" name="xuniyou">虚拟游</van-tabbar-item>
+          <van-tabbar-item icon="service-o">语音讲解</van-tabbar-item>
+          <van-tabbar-item class-prefix="zhoubianfuwu">周边服务</van-tabbar-item>
+          <van-tabbar-item icon="warning-o">详情</van-tabbar-item>
+        </van-tabbar>
       </div>
     </div>
   </div>
@@ -42,7 +54,7 @@ export default {
       lng: 0,
       lat: 0,
       loaded: false,
-      active:0
+      active: 0
     };
   },
   mounted() {
@@ -200,16 +212,16 @@ span {
   background-color: #fff;
   position: relative;
 }
-.Navigation{
-    width: 1.6rem;
-    height: 1.6rem;
-    position: absolute;
-    right: 0.68rem;
-    top: -1.2rem;
+.Navigation {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  right: 0.68rem;
+  top: -1.2rem;
 }
-.Navigation>img{
-    width: 100%;
-    height: 100%;
+.Navigation > img {
+  width: 100%;
+  height: 100%;
 }
 .parkName {
   text-align: initial;
@@ -274,5 +286,58 @@ span {
   color: rgba(102, 102, 102, 1);
   line-height: 0.9rem;
   margin-right: 1.55rem;
+}
+.float {
+  width: 1.36rem;
+  height: 2.626rem;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: absolute;
+  top: 0.24rem;
+  right: 0.426rem;
+  z-index: 999;
+}
+.guanguang{
+  width: 100%;
+  height: 50%;
+}
+.guanguang>img{
+  width: 0.586rem;
+  height: 0.586rem;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0.133rem;
+}
+.guanguang>div{
+  font-size:0.266rem;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(19,130,216,1);
+  text-align: center;
+}
+.xianlu{
+  width: 100%;
+  height: 50%;
+}
+.xianlu>img{
+  width: 0.586rem;
+  height: 0.586rem;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0.133rem;
+}
+.xianlu>div{
+  font-size:0.266rem;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(19,130,216,1);
+  text-align: center;
+}
+.xian{
+  width: 0.426rem;
+  height: 1px;
+  background-color: rgba(203, 203, 203, 1);
+  margin: 0 auto;
 }
 </style>
