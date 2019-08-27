@@ -1,13 +1,13 @@
 <template>
   <div style="width:100%;height:100%;position:relative">
     <div class="float">
-      <div class="guanguang">
-        <img src="../assets/images/guanguang.png" alt="" srcset="">
+      <div class="guanguang" @click="guanguang()">
+        <img src="../assets/images/guanguang.png" alt srcset />
         <div>宜游指数</div>
       </div>
       <div class="xian"></div>
-      <div class="xianlu">
-        <img src="../assets/images/xianlu.png" alt="" srcset="">
+      <div class="xianlu" @click="xianlu()">
+        <img src="../assets/images/xianlu.png" alt srcset />
         <div>线路推荐</div>
       </div>
     </div>
@@ -58,10 +58,10 @@ export default {
       zoom: 12,
       lng: 0,
       lat: 0,
-      golng:0,
-      golat:0,
-      originName:'起点',
-      destinationName:'终点',
+      golng: 0,
+      golat: 0,
+      originName: "起点",
+      destinationName: "终点",
       loaded: false,
       name: "",
       money: "",
@@ -78,13 +78,27 @@ export default {
     this.center();
   },
   methods: {
+    guanguang(){
+      this.$router.push('/AppropriateIndex')
+    },
+    xianlu(){
+      this.$router.push('/guideRoute')
+    },
     onSelect(item) {
       // 点击选项时默认不会关闭菜单，可以手动关闭
       this.show = false;
       switch (item.key) {
         case 1: // 高德
           window.location.href =
-            'http://uri.amap.com/navigation?from='+this.lng+','+this.lat+'&to='+this.golng+','+this.golat+'&mode=car&src=nyx_super'
+            "http://uri.amap.com/navigation?from=" +
+            this.lng +
+            "," +
+            this.lat +
+            "&to=" +
+            this.golng +
+            "," +
+            this.golat +
+            "&mode=car&src=nyx_super";
           break;
         case 2: // 百度
           window.location.href =
@@ -170,14 +184,20 @@ export default {
       const icon = new AMap.Icon({
         size: new AMap.Size(40, 60),
         image: require("../assets/images/marker.png"),
-        imageSize: new AMap.Size(30, 40),
+        imageSize: new AMap.Size(25, 25),
         anchor: "center"
       });
-      var markers = [
+      const clickIcon = new AMap.Icon({
+        size: new AMap.Size(40, 60),
+        image: require("../assets/images/markerChose.png"),
+        imageSize: new AMap.Size(25, 35),
+        anchor: "center"
+      });
+      var allmarkers = [
         {
           icon: icon,
           position: [116.205467, 39.907761],
-          name: "cacaca",
+          name: "采石矶高端停车场1",
           money: "10",
           car: "20",
           index: 0
@@ -185,7 +205,7 @@ export default {
         {
           icon: icon,
           position: [116.368904, 39.913423],
-          name: "sdsdssdsd",
+          name: "采石矶高端停车场2",
           money: "105",
           car: "205",
           index: 1
@@ -193,7 +213,7 @@ export default {
         {
           icon: icon,
           position: [116.305467, 39.807761],
-          name: "fgfggffggffg",
+          name: "采石矶高端停车场3",
           money: "103",
           car: "202",
           index: 2
@@ -203,20 +223,27 @@ export default {
         offset: new AMap.Pixel(5, -30)
       });
       // 添加一些分布不均的点到地图上,地图上添加三个点标记，作为参照
-      for (var i = 0, marker; i < markers.length; i++) {
+      for (var i = 0, marker; i < allmarkers.length; i++) {
         var marker = new AMap.Marker({
-          position: markers[i]["position"],
-          icon: markers[i].icon,
+          position: allmarkers[i]["position"],
+          icon: icon,
           map: map
         });
-        marker.content = markers[i].name;
-        marker.car = markers[i].car;
-        marker.position = markers[i]["position"];
-        marker.money = markers[i].money;
+        marker.content = allmarkers[i].name;
+        marker.car = allmarkers[i].car;
+        marker.position = allmarkers[i]["position"];
+        marker.money = allmarkers[i].money;
         marker.on("click", markerClick);
         marker.emit("click", { target: marker });
+        self.markers.push(marker);
       }
+      console.log(self.markers,'markers')
       function markerClick(e) {
+        for (var i = 0; i < self.markers.length; i++) {
+          self.markers[i].setIcon(icon);
+          console.log(self.markers[i])
+        }
+        e.target.setIcon(clickIcon);
         infoWindow.setContent(e.target.content);
         self.showInfo(e);
         infoWindow.open(map, e.target.getPosition());
@@ -342,43 +369,43 @@ span {
   right: 0.426rem;
   z-index: 999;
 }
-.guanguang{
+.guanguang {
   width: 100%;
   height: 50%;
 }
-.guanguang>img{
+.guanguang > img {
   width: 0.586rem;
   height: 0.586rem;
   margin: 0 auto;
   display: block;
   padding-top: 0.133rem;
 }
-.guanguang>div{
-  font-size:0.266rem;
-  font-family:PingFangSC;
-  font-weight:400;
-  color:rgba(19,130,216,1);
+.guanguang > div {
+  font-size: 0.266rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(19, 130, 216, 1);
   text-align: center;
 }
-.xianlu{
+.xianlu {
   width: 100%;
   height: 50%;
 }
-.xianlu>img{
+.xianlu > img {
   width: 0.586rem;
   height: 0.586rem;
   margin: 0 auto;
   display: block;
   padding-top: 0.133rem;
 }
-.xianlu>div{
-  font-size:0.266rem;
-  font-family:PingFangSC;
-  font-weight:400;
-  color:rgba(19,130,216,1);
+.xianlu > div {
+  font-size: 0.266rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(19, 130, 216, 1);
   text-align: center;
 }
-.xian{
+.xian {
   width: 0.426rem;
   height: 1px;
   background-color: rgba(203, 203, 203, 1);
