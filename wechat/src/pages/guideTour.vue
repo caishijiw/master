@@ -1,12 +1,12 @@
 <template>
   <div style="width:100%;height:100%;position:relative;">
     <div class="float">
-      <div class="guanguang">
+      <div class="guanguang" @click="guanguang()">
         <img src="../assets/images/guanguang.png" alt srcset />
         <div>宜游指数</div>
       </div>
       <div class="xian"></div>
-      <div class="xianlu">
+      <div class="xianlu" @click="xianlu()">
         <img src="../assets/images/xianlu.png" alt srcset />
         <div>线路推荐</div>
       </div>
@@ -28,12 +28,24 @@
             >介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍</div>
           </div>
         </div>
-        <van-tabbar v-model="active">
-          <van-tabbar-item class-prefix="my-icon" name="xuniyou">虚拟游</van-tabbar-item>
-          <van-tabbar-item icon="service-o">语音讲解</van-tabbar-item>
-          <van-tabbar-item class-prefix="zhoubianfuwu">周边服务</van-tabbar-item>
-          <van-tabbar-item icon="warning-o">详情</van-tabbar-item>
-        </van-tabbar>
+        <div class="footer">
+          <div class="caidan">
+            <img src="../assets/images/xuniyou.png" alt="">
+            <div>虚拟游</div>
+          </div>
+          <div class="caidan">
+            <img src="../assets/images/yuyinjiangjie.png" alt="">
+            <div>语音讲解</div>
+          </div>
+          <div class="caidan">
+            <img src="../assets/images/zhoubian.png" alt="">
+            <div>周边服务</div>
+          </div>
+          <div class="caidan">
+            <img src="../assets/images/xiangqing.png" alt="">
+            <div>详情</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -61,6 +73,12 @@ export default {
     this.center();
   },
   methods: {
+    guanguang(){
+      this.$router.push('/AppropriateIndex')
+    },
+    xianlu(){
+      this.$router.push('/guideRoute')
+    },
     center() {
       let self = this;
       let mapObj = new AMap.Map("surrounding");
@@ -198,26 +216,30 @@ export default {
 #map_surrounding {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 #surrounding {
   width: 100%;
-  height: calc(100% - 5.7rem);
+  height: calc(100% - 5.09rem);
+  position: absolute;
+  top: 0;
 }
 span {
   display: inline-block;
 }
 .card {
   width: 100%;
-  height: 5.09rem;
+  /* height: 5.09rem; */
   background-color: #fff;
-  position: relative;
+  position: absolute;
+  bottom:0;
 }
 .Navigation {
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
   right: 0.68rem;
-  top: -1.2rem;
+  top: -0.8rem;
 }
 .Navigation > img {
   width: 100%;
@@ -230,7 +252,7 @@ span {
   font-weight: 500;
   color: rgba(66, 73, 82, 1);
   line-height: 0.64rem;
-  margin: 0.48rem 0;
+  margin: 0.4rem 0;
 }
 .parkInfo {
   display: flex;
@@ -297,6 +319,31 @@ span {
   top: 0.24rem;
   right: 0.426rem;
   z-index: 999;
+}
+.footer{
+  width: 91%;
+  height: 1.5rem;
+  border-top: 1px dashed rgba(218, 218, 218, 1);
+  margin: 0 auto;
+}
+.footer>.caidan{
+  width: 24.2%;
+  height: 100%;
+  display: inline-block;
+}
+.caidan>img{
+  width: 0.506rem;
+  height: 0.506rem;
+  display: block;margin: 0 auto;
+  padding-top: 0.253rem;
+}
+.caidan>div{
+  text-align: center;
+  font-size:0.266rem;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  line-height: 0.8rem;
 }
 .guanguang{
   width: 100%;

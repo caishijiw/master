@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>采石矶旅游景区</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-  <script src="https://webapi.amap.com/maps?v=1.4.14&key=d9f4ac1ca6b539a91a673bcf5bff06d5&callback=init"></script>
-  <script src="./static/utils/flexible.js"></script>
 
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <title>采石矶旅游景区</title>
   <style>
-    *{
-      margin: 0;padding: 0;
+    * {
+      margin: 0;
+      padding: 0;
     }
-    html,body{
+
+    html,
+    body {
       width: 100%;
       height: 100%;
       font-size: 37.5px;
     }
+
   </style>
-  <script>
-      function init(){
-          var map = new AMap.Map('container', {
-              center: [117.000923, 36.675807],
-              zoom: 6
-          });
-          map.plugin(["AMap.ToolBar"], function() {
-              map.addControl(new AMap.ToolBar());
-          });
-      }
-  </script>
-  </html>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script src="https://webapi.amap.com/maps?v=1.4.14&key=d9f4ac1ca6b539a91a673bcf5bff06d5"></script>
+  <script src="./static/utils/flexible.js"></script>
+</body>
+
+</html>
