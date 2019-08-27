@@ -12,3 +12,11 @@ body,html{
 .swiper-container .van-swipe__indicators{
   background-color: transparent !important;
 }
+*{
+  margin: 0;padding: 0;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  font-size: 37.5px;
+}
