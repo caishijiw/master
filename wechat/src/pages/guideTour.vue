@@ -2,12 +2,12 @@
   <div style="width:100%;height:100%;position:relative;">
     <div class="float">
       <div class="guanguang" @click="guanguang()">
-        <img src="../assets/images/guanguang.png" alt srcset />
+        <img src="../../static/images/guanguang.png" alt srcset />
         <div>宜游指数</div>
       </div>
       <div class="xian"></div>
       <div class="xianlu" @click="xianlu()">
-        <img src="../assets/images/xianlu.png" alt srcset />
+        <img src="../../static/images/xianlu.png" alt srcset />
         <div>线路推荐</div>
       </div>
     </div>
@@ -15,7 +15,7 @@
       <div id="surrounding"></div>
       <div class="card">
         <div class="Navigation">
-          <img src="../assets/images/Navigation.png" alt />
+          <img src="../../static/images/Navigation.png" alt />
         </div>
         <div style="width:91%;margin:0 auto;padding-bottom:0.373rem;">
           <div class="parkName">景点名称</div>
@@ -30,19 +30,19 @@
         </div>
         <div class="footer">
           <div class="caidan">
-            <img src="../assets/images/xuniyou.png" alt="">
+            <img src="../../static/images/xuniyou.png" alt="">
             <div>虚拟游</div>
           </div>
           <div class="caidan">
-            <img src="../assets/images/yuyinjiangjie.png" alt="">
+            <img src="../../static/images/yuyinjiangjie.png" alt="">
             <div>语音讲解</div>
           </div>
           <div class="caidan">
-            <img src="../assets/images/zhoubian.png" alt="">
+            <img src="../../static/images/zhoubian.png" alt="">
             <div>周边服务</div>
           </div>
           <div class="caidan">
-            <img src="../assets/images/xiangqing.png" alt="">
+            <img src="../../static/images/xiangqing.png" alt="">
             <div>详情</div>
           </div>
         </div>
@@ -58,9 +58,9 @@ export default {
     let self = this;
     return {
       resultsDots: [],
-      icon: require("../assets/images/icon_park.png"),
-      mapIcon: require("../assets/images/map_park.png"),
-      activeIcon: require("../assets/images/pt_active.png"),
+      icon: require("../../static/images/icon_park.png"),
+      mapIcon: require("../../static/images/map_park.png"),
+      activeIcon: require("../../static/images/pt_active.png"),
       markers: [],
       zoom: 12,
       lng: 0,
@@ -71,6 +71,7 @@ export default {
   },
   mounted() {
     this.center();
+    document.title='导游导览'
   },
   methods: {
     guanguang(){

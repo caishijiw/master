@@ -33,6 +33,9 @@
          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566895705051&di=baf42329ea54d924986857198d854a00&imgtype=0&src=http%3A%2F%2Fimg.itc.cn%2Fphoto%2FjTVlAgb7C30'
             ]
           }
+      },
+      mounted(){
+          document.title='景区概览'
       }
     }
 </script>
@@ -132,7 +135,7 @@ font-family: PingFangSC-regular;
   .footer-wrap{
    height: 6.88rem;
     width: 100%;
-    background: url("../assets/images/ScenicIntroduction.png") center no-repeat;
+    background:url("../../static/images/ScenicIntroduction.png") center no-repeat;
     background-size: 100% 100%;
     padding-top:1.8rem ;
     border:1px solid transparent;

@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div class="spot-name">
+      <img src="../../static/images/timg.jpg" alt="">
       <div class="mask"> {{spotName}}</div>
     </div>
     <!--景点内容-->
@@ -46,16 +47,15 @@
         spotName: '三台阁',
         width: 0,
         imgArray: [
-          require('../assets/images/galleryjpg.jpg'),
-          require('../assets/images/galleryjpg.jpg'),
-          require('../assets/images/galleryjpg.jpg'),
-          require('../assets/images/galleryjpg.jpg'),
-          require('../assets/images/galleryjpg.jpg'),
-          require('../assets/images/galleryjpg.jpg'),
+         'static/images/galleryjpg.jpg',
+          'static/images/galleryjpg.jpg',
+          'static/images/galleryjpg.jpg',
+          'static/images/galleryjpg.jpg',
         ]
       }
     },
     mounted() {
+      document.title='景点详情'
       var allimgWidth = this.imgArray.length * 2.72 + 'rem'
       this.width = allimgWidth;
 
@@ -64,10 +64,14 @@
 </script>
 
 <style scoped>
+  .wrap{
+    width: 100%;
+    height: 100%;
+  }
   .spot-name {
     width: 100%;
     height: 2.13rem;
-    background: url("../assets/images/timg.jpg") center no-repeat;
+    background: url("../../static/images/timg.jpg") center no-repeat;
     position: relative;
     background-size: 100% auto;
     margin-bottom: 0.32rem;

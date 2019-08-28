@@ -7,7 +7,7 @@
       <!--sos 报警-->
       <div class="sos-wrap">
         <span class="sos-discribe" >如遇紧急情况，点击下方按钮联系我们</span>
-        <img src="../assets/images/sos.png" alt=""  class="sos-trigger">
+        <img :src="sos" alt=""  class="sos-trigger">
       <p class="emergency-call">紧急联系电话</p>
       </div>
 
@@ -19,10 +19,14 @@
         name: "helpKey",
     data(){
           return{
+            sos:'static/images/sos.png',
             problemArray:[
               '景区迷路，找不到出口','游客中暑，受伤，需要紧急提供治疗','游客落水，需要救险'
             ]
           }
+    },
+    mounted(){
+          document.title='一键求助'
     }
     }
 </script>

@@ -6,11 +6,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-
     {
       path: '/',
       name: 'ScenicIntroduction',
-      redirect: '/ticketOrder',
+      // redirect: '/maptest',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',
@@ -19,7 +18,7 @@ export default new Router({
     {
       path: '/spotIntroduction',
       name: 'spotIntroduction',
-      // redirect: '/hometab',
+
       component: resolve => require(["@/pages/spotIntroduction"], resolve),
       meta: {
         title: '景点介绍',
@@ -94,6 +93,15 @@ export default new Router({
       component: resolve => require(["@/pages/ticketOrder"], resolve),
       meta: {
         title: '订票',
+      },
+    },
+    {
+      path: '/maptest',
+      name: 'maptest',
+      component: resolve => require(["@/pages/maptest"], resolve),
+      meta: {
+        title: '景点介绍',
+
       },
     },
   ]

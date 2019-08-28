@@ -52,7 +52,7 @@
   .appropriate-wrap {
     width: 100%;
     height: 10.90rem;
-    background: url("../assets/images/AppropriateBg.png") center no-repeat;
+    background: url("../../static/images/AppropriateBg.png") center no-repeat;
     background-size: 100% 100%;
     padding-top: 0.4rem;
     -webkit-box-sizing: border-box;

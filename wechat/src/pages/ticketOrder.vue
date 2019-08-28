@@ -23,7 +23,7 @@
           <i>{{ticketNumberAdult}}</i> <span class="plus" @click="ticketNumberAdd"></span></div>
       </div>
       <div class="order-item">
-        <span class="price">¥50</span>
+        <span class="price">¥25</span>
         <span class="ticket-type">儿童票</span>
         <div class="ticket-number-wrap"><span class="minus" @click="ticketNumberChildMinus"></span> <i>{{ticketNumberChild}}</i>
           <span class="plus" @click="ticketNumberChildAdd"></span></div>
@@ -34,7 +34,7 @@
     <div class="order-ticket">
       <span class="item-title">联系人</span>
       <div class="form">
-        <div class="form-item" style="background: #ee0a24">
+        <div class="form-item" >
           <span>姓名</span>
           <div class="input-wrap">
             <input type="text" v-model="form.name" placeholder="请输入姓名">
@@ -49,7 +49,7 @@
         <div class="form-item">
           <span>身份证号</span>
           <div class="input-wrap">
-            <input type="text" v-model="form.phone" placeholder="请输入证件号">
+            <input type="text" v-model="form.IdCard" placeholder="请输入证件号">
           </div>
         </div>
 
@@ -57,7 +57,11 @@
 
     </div>
 
-
+<!--footer-->
+    <div class="footer-wrap">
+总价 <i>¥</i><mark>{{orderPrice}}</mark>
+      <button @click="orderNow">立即购买</button>
+    </div>
   </div>
 </template>
 
@@ -79,8 +83,10 @@
         ticketNumberChild: 1,
         form: {
           name: '',
-          phone: ''
-        }
+          phone: '',
+          IdCard:''
+        },
+        orderPrice:100
 
       }
     },
@@ -91,7 +97,8 @@
     },
     mounted() {
       this.currentDayStamp = Date.parse(new Date());
-      console.log(this.currentDayStamp, 'mindate');
+      // console.log(this.currentDayStamp, 'mindate');
+      document.title='在线购票'
 
     },
     methods: {
@@ -122,25 +129,67 @@
       ticketNumberMinus() {
         if (this.ticketNumberAdult > 1) {
           this.ticketNumberAdult--
+          this.orderPrice=this.ticketNumberAdult*50+this.ticketNumberChild*25
         }
+
+
         // }else {
         //   Toast.fail('门票数量必须>=1')
         // }
 
       },
       ticketNumberAdd() {
-        this.ticketNumberAdult++
+        this.ticketNumberAdult++;
+        this.orderPrice=this.ticketNumberAdult*50+this.ticketNumberChild*25;
       },
       ticketNumberChildMinus() {
         if (this.ticketNumberChild > 0) {
           this.ticketNumberChild--
+          this.orderPrice=this.ticketNumberAdult*50+this.ticketNumberChild*25
         }
       },
       ticketNumberChildAdd() {
         this.ticketNumberChild++
+        this.orderPrice=this.ticketNumberAdult*50+this.ticketNumberChild*25
+      },
+      orderNow(){
+        let parmas=this.form;
+        if(parmas.name!=="" && parmas.phone!==""&& parmas.IdCard!==''){
+           if(this.checkPhone(parmas.phone)&& this.testid(parmas.IdCard) ) {
+             Toast.success('成功')
+           }
+        }else{
+          Toast.fail('联系人信息不完整')
+        }
+      },
+      /**
+       * 手机正则验证
+       */
+      checkPhone(value){
+        var phone = value;
+        if(!(/^1[3456789]\d{9}$/.test(phone))){
+          Toast.fail("手机号码有误，请重填");
+          return false;
+        }else{
+          return true;
+        }
+      },
+      /**
+       * 身份证较验
+       */
+ testid(id) {
+        var idcardReg = /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+        if(idcardReg.test(id)) {
+          return true
+        }else{
+          Toast.fail("证件号有误，请重填");
+          return false;
 
-      }
-    }
+        }
+
+  }
+
+  }
   }
 </script>
 
@@ -238,6 +287,7 @@
   .order-item {
     width: 100%;
     height: 1.5rem;
+    position: relative;
   }
 
   .order-item .price, .order-item .ticket-type {
@@ -276,13 +326,13 @@
   }
 
   .ticket-number-wrap .minus {
-    background: url("../assets/images/minus.png") center no-repeat;
+    background: url("../../static/images/minus.png") center no-repeat;
     background-size: 0.4rem 0.4rem;
     left: 0;
   }
 
   .ticket-number-wrap .plus {
-    background: url("../assets/images/add.png") center no-repeat;
+    background: url("../../static/images/add.png") center no-repeat;
     background-size: 0.4rem 0.4rem;
     right: 0;
   }
@@ -290,19 +340,17 @@
   .ticket-number-wrap i {
     display: inline-block;
     width: 1.173rem;
-    height: 0.8rem;
+    height: 0.6rem;
     background: rgba(244, 244, 244, 1);
-    line-height: 0.8rem;
-    margin-top: 0.35rem;
+    line-height: 0.65rem;
+    margin-top: 0.5rem;
     font-style: normal;
-    font-size: 0.53rem;
+    font-size: 0.5rem;
     font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(70, 70, 70, 1);
     text-align: center;
-
   }
-
   .form-item {
     height: 1rem;
     width: 100%;
@@ -326,8 +374,76 @@
   }
   .form-item .input-wrap{
     height: 0.7rem;
+    line-height: 0.6rem;
     width: 5.5rem;
     display: inline-block;
     border-bottom: 1px solid #DADADA;
   }
+  .form-item .input-wrap input{
+    outline: none;
+    border: none;
+    font-size: 0.32rem;
+    text-indent: 10px;
+  }
+  .footer-wrap{
+    width:100%;
+    height:1.33rem;
+    background:rgba(255,255,255,1);
+    box-shadow:0px -0.03rem 0.16rem 0px rgba(0,0,0,0.05);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    line-height: 1.33rem;
+    font-size:0.32rem;
+    font-family:PingFangSC-regular;
+    font-weight:400;
+    color:#464646;
+    padding-left: 0.44rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+
+  }
+  .footer-wrap i{
+    font-size:0.36rem;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(224,104,119,1);
+font-style: normal;
+  }
+  .footer-wrap mark{
+    font-size:0.5rem;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(224,104,119,1);
+    background: transparent;
+  }
+  .footer-wrap button{
+    width:3.4666rem;
+    height:100%;
+    background:linear-gradient(180deg,rgba(251,210,73,1) 0%,rgba(245,166,35,1) 100%);
+    font-size:0.48rem;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    float: right;
+    outline: none;
+    border: none;
+    letter-spacing: 1px;
+
+  }
+  ::-webkit-input-placeholder {
+    color:rgba(218,218,218,1);
+  }
+  :-moz-placeholder {/* Firefox 18- */
+    color:rgba(218,218,218,1);
+  }
+  ::-moz-placeholder{/* Firefox 19+ */
+    color:rgba(218,218,218,1);
+  }
+  :-ms-input-placeholder {
+    color:rgba(218,218,218,1);
+  }
+
 </style>
