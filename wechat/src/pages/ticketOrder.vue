@@ -343,7 +343,7 @@
     height: 0.6rem;
     background: rgba(244, 244, 244, 1);
     line-height: 0.65rem;
-    margin-top: 0.5rem;
+    margin-top: 0.48rem;
     font-style: normal;
     font-size: 0.5rem;
     font-family: PingFangSC-Medium;

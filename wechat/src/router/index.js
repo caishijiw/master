@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'ScenicIntroduction',
-      // redirect: '/maptest',
+      redirect: '/helpKey',
       component: resolve => require(["@/pages/ScenicIntroduction"], resolve),
       meta: {
         title: '采石矶概况',
