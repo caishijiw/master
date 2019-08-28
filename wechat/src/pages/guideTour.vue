@@ -323,7 +323,7 @@ export default {
 }
 #surrounding {
   width: 100%;
-  height: calc(100% - 4.7rem);
+  height: calc(100% - 5.7rem);
   position: absolute;
   top: 0;
 }
@@ -332,7 +332,7 @@ span {
 }
 .card {
   width: 100%;
-  height: 4.7rem;
+  height: 5.7rem;
   background-color: #fff;
   position: absolute;
   bottom: 0;
