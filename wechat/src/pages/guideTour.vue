@@ -279,12 +279,17 @@ export default {
     },
     AUdioPlay() {
       this.musicUrl =
-        "http://m10.music.126.net/20190828091137/6c00dd2a304abd6c106b895b77846023/yyaac/015f/0752/035f/656f4d4f6808e336c2e2459602aa697d.m4a";
+        "https://www.supconit.net/h5/caishiji/mp3.mp3";
       var audio = this.$refs.audio;
       if (audio !== null) {
+        console.log(111)
         if (audio.paused) {
+        console.log(222)
           this.$nextTick(() => {
+        console.log(333)
             this.$refs.audio.play();
+        console.log(this.$refs.audio.play())
+            document.addEventListener("WeixinJSBridgeReady", this.$refs.audio.play(), false);
           });
           setTimeout(() => {
             this.duration--;
@@ -318,7 +323,7 @@ export default {
 }
 #surrounding {
   width: 100%;
-  height: calc(100% - 5.7rem);
+  height: calc(100% - 4.7rem);
   position: absolute;
   top: 0;
 }
@@ -327,7 +332,7 @@ span {
 }
 .card {
   width: 100%;
-  height: 5.7rem;
+  height: 4.7rem;
   background-color: #fff;
   position: absolute;
   bottom: 0;
