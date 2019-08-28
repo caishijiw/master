@@ -48,7 +48,6 @@
 export default {
   name: "parking",
   data() {
-    let self = this;
     return {
       resultsDots: [],
       icon: require("../../static/images/icon_park.png"),
@@ -275,22 +274,25 @@ export default {
 #surrounding {
   width: 100%;
   height: 76%;
+  position: absolute;
+  top: 0;
 }
 span {
   display: inline-block;
 }
 .card {
   width: 100%;
-  height: 20%;
+  height: 24%;
   background-color: #fff;
-  position: relative;
+  position: absolute;
+  bottom:0;
 }
 .Navigation {
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
   right: 0.68rem;
-  top: -1.2rem;
+  top: -0.8rem;
 }
 .Navigation > img {
   width: 100%;

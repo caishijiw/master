@@ -14,40 +14,42 @@
     <div class="map_surrounding" id="map_surrounding">
       <div id="surrounding"></div>
       <div class="card">
-        <div class="Navigation">
+        <div class="Navigation" @click="Navigation()">
           <img src="../../static/images/Navigation.png" alt />
+
         </div>
         <div style="width:91%;margin:0 auto;padding-bottom:0.373rem;">
-          <div class="parkName">景点名称</div>
+          <div class="parkName">{{name}}</div>
           <div class="parkInfo">
             <div class="park_image">
               <img src="https://cn.vuejs.org/images/logo.png" alt />
             </div>
-            <div
-              class="park_flex"
-            >介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍绍介绍介绍介绍介绍</div>
+            <div class="park_flex">{{introduce}}</div>
           </div>
         </div>
         <div class="footer">
           <div class="caidan">
-            <img src="../../static/images/xuniyou.png" alt="">
+            <img src="../../static/images/xuniyou.png" alt />
             <div>虚拟游</div>
           </div>
-          <div class="caidan">
-            <img src="../../static/images/yuyinjiangjie.png" alt="">
+          <div class="caidan" @click="AUdioPlay()">
+            <img src="../../static/images/yuyinjiangjie.png" alt />
             <div>语音讲解</div>
           </div>
           <div class="caidan">
-            <img src="../../static/images/zhoubian.png" alt="">
+            <img src="../../static/images/zhoubian.png" alt />
             <div>周边服务</div>
           </div>
           <div class="caidan">
-            <img src="../../static/images/xiangqing.png" alt="">
+            <img src="../../static/images/xiangqing.png" alt />
+
             <div>详情</div>
           </div>
         </div>
       </div>
     </div>
+    <van-action-sheet v-model="show" :actions="actions" cancel-text="取消" @select="onSelect" />
+    <audio @canplay="getDuration" ref="audio" :src="musicUrl" hidden></audio>
   </div>
 </template>
 
@@ -55,7 +57,6 @@
 export default {
   name: "guideTour",
   data() {
-    let self = this;
     return {
       resultsDots: [],
       icon: require("../../static/images/icon_park.png"),
@@ -65,8 +66,23 @@ export default {
       zoom: 12,
       lng: 0,
       lat: 0,
+      golng: 0,
+      golat: 0,
+      originName: "起点",
+      destinationName: "终点",
       loaded: false,
-      active: 0
+      name: "",
+      introduce: "",
+      money: "",
+      car: "",
+      show: false,
+      actions: [
+        { name: "高德地图", key: 1 },
+        { name: "百度地图", key: 2 },
+        { name: "腾讯地图", key: 3 }
+      ],
+      musicUrl: "",
+      duration: ""
     };
   },
   mounted() {
@@ -74,11 +90,64 @@ export default {
     document.title='导游导览'
   },
   methods: {
-    guanguang(){
-      this.$router.push('/AppropriateIndex')
+    guanguang() {
+      this.$router.push("/AppropriateIndex");
     },
-    xianlu(){
-      this.$router.push('/guideRoute')
+    xianlu() {
+      this.$router.push("/guideRoute");
+    },
+    onSelect(item) {
+      // 点击选项时默认不会关闭菜单，可以手动关闭
+      this.show = false;
+      switch (item.key) {
+        case 1: // 高德
+          window.location.href =
+            "http://uri.amap.com/navigation?from=" +
+            this.lng +
+            "," +
+            this.lat +
+            "&to=" +
+            this.golng +
+            "," +
+            this.golat +
+            "&mode=car&src=nyx_super";
+          break;
+        case 2: // 百度
+          window.location.href =
+            "http://api.map.baidu.com/direction?origin=latlng:" +
+            this.lat +
+            "," +
+            this.lng +
+            "|name:" +
+            this.originName +
+            "&destination=latlng:" +
+            this.golat +
+            "," +
+            this.golng +
+            "|name:" +
+            this.destinationName +
+            "&mode=driving&region=浙江&output=html&src=webapp.baidu.openAPIdemo";
+          break;
+        case 3: // 腾讯
+          window.location.href =
+            " https://apis.map.qq.com/uri/v1/routeplan?type=drive&from=" +
+            this.orginName +
+            "&fromcoord=" +
+            this.lat +
+            "," +
+            this.lng +
+            "&to=" +
+            this.destinationName +
+            "&tocoord=" +
+            this.golng +
+            "," +
+            this.golat +
+            "&policy=1&referer=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77";
+          break;
+      }
+    },
+    Navigation() {
+      this.show = true;
     },
     center() {
       let self = this;
@@ -107,104 +176,132 @@ export default {
           self.lng = Number(result.position.lng);
           self.lat = Number(result.position.lat);
           console.log(self.lng, self.lat, "11111");
-          self.loadMap();
+          self.searchMap();
         });
       });
-    },
-    bd_decrypt(bd_lng, bd_lat) {
-      let self = this;
-      let baidu = [bd_lng, bd_lat];
-      console.log(baidu, "baidu");
-      AMap.convertFrom(baidu, "baidu", function(status, result) {
-        console.log(result, status);
-        if (result.info === "ok") {
-          let lnglats = result.locations; // Array.<LngLat>
-          console.log(self);
-          console.log(lnglats, "lnglats");
-          self.lng = lnglats[0].Q;
-          self.lat = lnglats[0].P;
-          self.loadMap();
-        }
-      });
-    },
-    loadMap() {
-      console.log(this.lng, "lng");
-      let mapCeneter = new AMap.Map("surrounding", {
-        zoom: 11, //级别
-        center: [this.lng, this.lat] //中心点坐标
-      });
-      this.searchMap();
     },
     searchMap() {
       let self = this;
       let map = new AMap.Map("surrounding", {
-        resizeEnable: true
+        resizeEnable: true,
+        center: [this.lng, this.lat],
+        zoom: 11
       });
-
-      let myPosition = new AMap.Marker({
-        position: [this.lng, this.lat],
-        icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_r.png"
+      map.on("moveend", logMapinfo);
+      map.on("zoomend", logMapinfo);
+      function logMapinfo() {
+        var zoom = map.getZoom(); //获取当前地图级别
+        var center = map.getCenter(); //获取当前地图中心位置
+      }
+      const icon = new AMap.Icon({
+        size: new AMap.Size(40, 60),
+        image: require("../assets/images/scienceMarker.png"),
+        imageSize: new AMap.Size(25, 25),
+        anchor: "center"
       });
-      map.add(myPosition);
-      AMap.service(["AMap.PlaceSearch"], function() {
-        //构造地点查询类
-        let placeSearch = new AMap.PlaceSearch({
-          type: "停车场", // 兴趣点类别
-          citylimit: true, //是否强制限制在设置的城市内搜索
-          // map: map, // 展现结果的地图实例
-          autoFitView: true
+      const clickIcon = new AMap.Icon({
+        size: new AMap.Size(40, 60),
+        image: require("../assets/images/scienceMarkerChose.png"),
+        imageSize: new AMap.Size(25, 35),
+        anchor: "center"
+      });
+      var allmarkers = [
+        {
+          icon: icon,
+          position: [116.205467, 39.907761],
+          name: "采石矶高端停车场1",
+          introduce: "如同肉体推特热特太热太热热特热热特他人更方便发的",
+          money: "10",
+          car: "20",
+          index: 0
+        },
+        {
+          icon: icon,
+          position: [116.368904, 39.913423],
+          name: "采石矶高端停车场2",
+          introduce: "郭德纲发个电饭锅电饭锅的咕咚咕咚发广告大富大贵广泛的",
+          money: "105",
+          car: "205",
+          index: 1
+        },
+        {
+          icon: icon,
+          position: [116.305467, 39.807761],
+          name: "采石矶高端停车场3",
+          introduce:
+            "sddsdsdsds阿达打算打算打算的撒大大大时代大厦达大师大师达撒打算打算打底衫",
+          money: "103",
+          car: "202",
+          index: 2
+        }
+      ];
+      var infoWindow = new AMap.InfoWindow({
+        offset: new AMap.Pixel(5, -30)
+      });
+      // 添加一些分布不均的点到地图上,地图上添加三个点标记，作为参照
+      for (var i = 0, marker; i < allmarkers.length; i++) {
+        var marker = new AMap.Marker({
+          position: allmarkers[i]["position"],
+          icon: icon,
+          map: map
         });
-
-        let cpoint = [self.lng, self.lat]; //中心点坐标
-        placeSearch.searchNearBy("", cpoint, 600, function(status, result) {
-          if (status == "complete" && result.info == "OK") {
-            console.log(result, "result");
-            self.resultsDots = result.poiList.pois;
-            console.log(self.resultsDots, "self.resultsDots");
-            let latSum = 0;
-            let lngSum = 0;
-            let AllLocation = [];
-            let langAndlat = [];
-            if (result.poiList.pois.length > 0) {
-              result.poiList.pois.forEach(pois => {
-                // console.log(pois);
-                let { location } = pois;
-                AllLocation.push(location);
-                console.log(AllLocation, "AllLocation");
-              });
-              AllLocation.forEach(lngAndLat => {
-                let { lng, lat } = lngAndLat;
-                langAndlat.push([lng, lat]);
-              });
-              // console.log(langAndlat, "langAndlat");
-              self.markers = langAndlat;
-              var infoWindow = new AMap.InfoWindow({
-                offset: new AMap.Pixel(0, -30)
-              });
-              for (var i = 0, marker; i < self.markers.length; i++) {
-                var marker = new AMap.Marker({
-                  position: self.markers[i],
-                  map: map
-                });
-                marker.content = result.poiList.pois[i].name;
-                marker.index = i;
-                marker.on("click", markerClick);
-                marker.emit("click", { target: marker });
-              }
-              function markerClick(e) {
-                infoWindow.setContent(e.target.content);
-                self.changeCurrentDot(e, e.target.index);
-                infoWindow.open(map, e.target.getPosition());
-              }
-              map.setFitView();
-            }
-          }
-        });
-      });
+        marker.content = allmarkers[i].name;
+        marker.car = allmarkers[i].car;
+        marker.position = allmarkers[i]["position"];
+        marker.money = allmarkers[i].money;
+        marker.introduce = allmarkers[i].introduce;
+        marker.on("click", markerClick);
+        marker.emit("click", { target: marker });
+        self.markers.push(marker);
+      }
+      console.log(self.markers, "markers");
+      function markerClick(e) {
+        for (var i = 0; i < self.markers.length; i++) {
+          self.markers[i].setIcon(icon);
+          console.log(self.markers[i]);
+        }
+        e.target.setIcon(clickIcon);
+        infoWindow.setContent(e.target.content);
+        self.showInfo(e);
+        infoWindow.open(map, e.target.getPosition());
+      }
+      map.setFitView();
     },
-    changeCurrentDot(e, idx) {
-      console.log(e, "e");
-      this.currentDotIdx = idx;
+    showInfo(e) {
+      // alert(e.target)
+      this.name = e.target.content;
+      this.money = e.target.money;
+      this.car = e.target.car;
+      this.golng = e.target.position[0];
+      this.golat = e.target.position[1];
+      this.introduce = e.target.introduce;
+      // this.currentDotIdx = idx;
+    },
+    AUdioPlay() {
+      this.musicUrl =
+        "http://m10.music.126.net/20190828091137/6c00dd2a304abd6c106b895b77846023/yyaac/015f/0752/035f/656f4d4f6808e336c2e2459602aa697d.m4a";
+      var audio = this.$refs.audio;
+      if (audio !== null) {
+        if (audio.paused) {
+          this.$nextTick(() => {
+            this.$refs.audio.play();
+          });
+          setTimeout(() => {
+            this.duration--;
+            if (this.duration <= 0) {
+              this.$nextTick(() => {
+                this.$refs.audio.pause();
+              });
+            }
+          }, 1000);
+        } else {
+          audio.pause();
+        }
+      }
+    },
+    getDuration() {
+      console.log(this.$refs.audio.duration); //此时可以获取到duration
+      this.duration = this.$refs.audio.duration;
     }
   }
 };
@@ -221,7 +318,7 @@ export default {
 }
 #surrounding {
   width: 100%;
-  height: calc(100% - 5.09rem);
+  height: calc(100% - 5.7rem);
   position: absolute;
   top: 0;
 }
@@ -230,10 +327,10 @@ span {
 }
 .card {
   width: 100%;
-  /* height: 5.09rem; */
+  height: 5.7rem;
   background-color: #fff;
   position: absolute;
-  bottom:0;
+  bottom: 0;
 }
 .Navigation {
   width: 1.6rem;
@@ -321,68 +418,69 @@ span {
   right: 0.426rem;
   z-index: 999;
 }
-.footer{
+.footer {
   width: 91%;
   height: 1.5rem;
   border-top: 1px dashed rgba(218, 218, 218, 1);
   margin: 0 auto;
 }
-.footer>.caidan{
+.footer > .caidan {
   width: 24.2%;
   height: 100%;
   display: inline-block;
 }
-.caidan>img{
+.caidan > img {
   width: 0.506rem;
   height: 0.506rem;
-  display: block;margin: 0 auto;
+  display: block;
+  margin: 0 auto;
   padding-top: 0.253rem;
 }
-.caidan>div{
+.caidan > div {
   text-align: center;
-  font-size:0.266rem;
-  font-family:PingFangSC;
-  font-weight:400;
-  color:rgba(102,102,102,1);
+  font-size: 0.266rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
   line-height: 0.8rem;
 }
-.guanguang{
+.guanguang {
   width: 100%;
   height: 50%;
 }
-.guanguang>img{
+.guanguang > img {
   width: 0.586rem;
   height: 0.586rem;
   margin: 0 auto;
   display: block;
   padding-top: 0.133rem;
 }
-.guanguang>div{
-  font-size:0.266rem;
-  font-family:PingFangSC;
-  font-weight:400;
-  color:rgba(19,130,216,1);
+.guanguang > div {
+  font-size: 0.266rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(19, 130, 216, 1);
   text-align: center;
 }
-.xianlu{
+.xianlu {
   width: 100%;
   height: 50%;
 }
-.xianlu>img{
+.xianlu > img {
   width: 0.586rem;
   height: 0.586rem;
   margin: 0 auto;
   display: block;
   padding-top: 0.133rem;
 }
-.xianlu>div{
-  font-size:0.266rem;
-  font-family:PingFangSC;
-  font-weight:400;
-  color:rgba(19,130,216,1);
+.xianlu > div {
+  font-size: 0.266rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(19, 130, 216, 1);
   text-align: center;
 }
-.xian{
+.xian {
   width: 0.426rem;
   height: 1px;
   background-color: rgba(203, 203, 203, 1);
