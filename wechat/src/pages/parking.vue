@@ -48,7 +48,6 @@
 export default {
   name: "parking",
   data() {
-    let self = this;
     return {
       resultsDots: [],
       icon: require("../assets/images/icon_park.png"),
