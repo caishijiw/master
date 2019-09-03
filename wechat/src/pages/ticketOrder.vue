@@ -221,7 +221,7 @@
     line-height: 1.54rem;
     width: 1.706rem;
     font-size: 0.426rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(146, 146, 146, 1);
 
@@ -241,7 +241,7 @@
   .date-content span {
     display: block;
     font-size: 0.45rem;
-    font-family: PingFangSC-Medium;
+
     font-weight: 500;
     color: rgba(32, 139, 220, 1);
     line-height: 0.6666rem;
@@ -257,7 +257,7 @@
 
   .date-content i {
     font-size: 0.32rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 500;
     color: rgba(146, 146, 146, 1);
     font-style: normal;
@@ -277,7 +277,7 @@
   .item-title {
     display: block;
     font-size: 0.426rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(146, 146, 146, 1);
     line-height: 0.32rem;
@@ -296,7 +296,7 @@
     height: 1.5rem;
     line-height: 1.5rem;
     font-size: 0.37rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(70, 70, 70, 1);
     text-align: center;
@@ -346,7 +346,7 @@
     margin-top: 0.48rem;
     font-style: normal;
     font-size: 0.5rem;
-    font-family: PingFangSC-Medium;
+
     font-weight: 500;
     color: rgba(70, 70, 70, 1);
     text-align: center;
@@ -365,7 +365,7 @@
   .form-item span {
     width: 1.5rem;
     font-size:0.373rem;
-    font-family:PingFangSC-regular;
+
     font-weight:400;
     color:rgba(70,70,70,1);
     line-height:0.5333rem;
@@ -395,7 +395,7 @@
     left: 0;
     line-height: 1.33rem;
     font-size:0.32rem;
-    font-family:PingFangSC-regular;
+
     font-weight:400;
     color:#464646;
     padding-left: 0.44rem;
@@ -407,14 +407,14 @@
   }
   .footer-wrap i{
     font-size:0.36rem;
-    font-family:PingFangSC-Medium;
+
     font-weight:500;
     color:rgba(224,104,119,1);
 font-style: normal;
   }
   .footer-wrap mark{
     font-size:0.5rem;
-    font-family:PingFangSC-Medium;
+
     font-weight:500;
     color:rgba(224,104,119,1);
     background: transparent;
@@ -424,7 +424,7 @@ font-style: normal;
     height:100%;
     background:linear-gradient(180deg,rgba(251,210,73,1) 0%,rgba(245,166,35,1) 100%);
     font-size:0.48rem;
-    font-family:PingFangSC-Medium;
+
     font-weight:500;
     color:rgba(255,255,255,1);
     float: right;

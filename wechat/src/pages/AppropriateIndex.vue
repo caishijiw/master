@@ -75,7 +75,7 @@
     height: 100%;
     vertical-align: bottom;
     font-size: 0.373rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     float: left;
@@ -84,7 +84,6 @@
 
   .temperature .left-content mark {
     background: transparent;
-    font-family: PingFangSC-Medium;
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     line-height: 2.24rem;
@@ -96,7 +95,6 @@
     float: right;
     width: 4.106rem;
     font-size: .373rem;
-    font-family: PingFangSC-regular;
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     line-height: 0.3rem;
@@ -123,7 +121,7 @@
     height: 1.46rem;
     margin-bottom: 0.66rem;
     font-size:0.373rem;
-    font-family:PingFangSC-Medium;
+
     font-weight:500;
     color:rgba(255,255,255,1);
     line-height:0.5rem;

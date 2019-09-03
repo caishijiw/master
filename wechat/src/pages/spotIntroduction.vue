@@ -6,10 +6,10 @@
     </div>
     <div class="swiper">
       <swiper :options="swiperOption">
-        <swiper-slide v-for="(item,index) in swiperImgArray" :key="index">
-          <div class="slide-wrap">
-            <img :src="item" alt="">
-            <div class="slide-discribe">三元洞</div>
+        <swiper-slide v-for="(item,index) in scienceArray.slice(0,5)" :key="index">
+          <div class="slide-wrap" @click="viewDetail(item)">
+            <img :src="item.imgSrcArray[0]" alt="">
+            <div class="slide-discribe">{{item.name}}</div>
           </div>
         </swiper-slide>
 
@@ -20,17 +20,16 @@
       <span>其他景点</span>
     </div>
     <div class="other-science">
-      <div class="each_science" v-for="(item,index) in scienceArray" :key="index">
+      <div class="each_science" v-for="(item,index) in scienceArray.slice(5,scienceArray.length)" :key="index">
         <span class="science-img">
-          <img :src="item.img" alt />
+          <img :src="item.imgSrcArray[0]" alt />
         </span>
         <div class="science-introduce">
           <div class="introduce-top">
             <div >{{item.name}}</div>
             <div @click="viewDetail(item)">查看详情 ></div>
           </div>
-          <div class="introduce">
-            {{item.disrcibe}}
+          <div class="introduce"  v-html="item.introduce">
           </div>
         </div>
       </div>
@@ -44,15 +43,7 @@ export default {
   name: "spotIntroduction",
   data() {
     return {
-      swiperImgArray:[
-      'static/images/galleryjpg.jpg',
-       'static/images/galleryjpg.jpg',
-      ],
-      scienceArray:[
-        { name:"三元洞",img:'static/images/galleryjpg.jpg',disrcibe:'简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简'},
-        { name:"三元洞",img:'static/images/galleryjpg.jpg',disrcibe:'简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简'},
-
-      ],
+      scienceArray: this.$store.state.routerArray,
       swiperOption: {
         initialSlide: 1,
         slidesPerView: 1.235,
@@ -72,7 +63,10 @@ export default {
   methods:{
     viewDetail(item){
       this.$router.push({
-        path:'/attractionsDetails'
+        path:'/attractionsDetails',
+        query:{
+          obj:JSON.stringify(item)
+        }
       })
     }
   }
@@ -94,7 +88,7 @@ export default {
   height: 0.6rem;
   display: flex;
   vertical-align: middle;
-font-family: PingFangSC-Medium;
+
   margin-bottom: 0.2rem;
 }
 .title > img {
@@ -108,7 +102,8 @@ font-family: PingFangSC-Medium;
   display: inline-block;
 line-height: 0.6rem;
   text-indent: 0.24rem;
-  font-size: 0.4266rem;
+  font-size: 0.38rem;
+  font-weight: 550;
 }
 .swiper {
   width: 100%;
@@ -160,15 +155,13 @@ line-height: 0.6rem;
 .introduce-top>div:nth-child(1){
   color: rgba(72, 72, 72, 1);
   font-size: 0.37rem;
-  font-family:PingFangSC-Medium;
-  font-weight:400;
+
+  font-weight:550;
   line-height:0.44rem;
 
 }
 .introduce-top>div:nth-child(2){
-    margin-right: 1rem;
     font-size:0.32rem;
-    font-family:PingFangSC-regular;
     font-weight:400;
     color:rgba(48,154,159,1);
     line-height:0.44rem;
@@ -177,7 +170,7 @@ line-height: 0.6rem;
   margin-top:0.2rem;
   text-align: initial;
   font-size:0.32rem;
-  font-family:PingFangSC-regular;
+
   font-weight:400;
   color:rgba(72,72,72,1);
   line-height:0.44rem;

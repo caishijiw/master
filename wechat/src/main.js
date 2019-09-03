@@ -16,7 +16,6 @@ Vue.use(Vant);
  *引入css
  */
 import  "./assets/css/user.css"
-import  '../static/font/fontStyle.css'
 import  '../static/font/iconfont.css'
 /**
  *引入vue-awesome-swiper
@@ -34,10 +33,22 @@ import 'swiper/dist/css/swiper.css'
  */
 import VConsole from 'vconsole'
 var vConsole = new VConsole()
+import axios from 'axios'
+Vue.prototype.axios=axios;
+import Vuex from 'vuex';
+import store from './store/index'
+//引入photo-swiper
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+let options = {
+  fullscreenEl: false
+};
+Vue.use(preview, options)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

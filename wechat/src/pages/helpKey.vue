@@ -132,7 +132,7 @@ overflow: hidden;
 }
   .sos-discribe{
     font-size:0.32rem;
-    font-family:PingFangSC-regular;
+
     font-weight:400;
     color:rgba(146,146,146,1);
     line-height:0.44rem;
@@ -143,7 +143,7 @@ overflow: hidden;
   }
   .emergency-call{
     font-size:0.32rem;
-    font-family:PingFangSC-regular;
+
     font-weight:400;
     color:rgba(146,146,146,1);
     line-height:0.44rem;
@@ -173,7 +173,6 @@ overflow: hidden;
     line-height: 1.06rem;
     border-radius:0.053rem;
     font-size:0.373rem;
-    font-family:PingFangSC-regular;
     font-weight:400;
     display: inline-block;
     background:rgba(239,239,239,1);
@@ -189,16 +188,16 @@ padding: 0 0.4rem;
     color:rgba(0,93,127,1);
   }
   .sos-trigger.scale{
-    -webkit-animation: myrotate 100s  linear;
-    -moz-animation:myrotate 100s  linear;
-    -ms-animation: myrotate 100s  linear;
-    -o-animation: myrotate 100s  linear;
-    animation: myrotate 100s  linear;
+    -webkit-animation: myrotate 50s  linear;
+    -moz-animation:myrotate 50s  linear;
+    -ms-animation: myrotate 50s  linear;
+    -o-animation: myrotate 50s  linear;
+    animation: myrotate 50s  linear;
   }
   /*动画*/
   @-webkit-keyframes myrotate{
     0%{
-      -webkit-transform : scale(0.7);
+      -webkit-transform : scale(0.9);
     }
   100%{
            -webkit-transform : scale(1);
@@ -206,7 +205,7 @@ padding: 0 0.4rem;
   }
   @-moz-keyframes myrotate{
     0%{
-      -moz-transform :scale(0.7);
+      -moz-transform :scale(0.9);
     }
     /*50%{*/
       /*-moz-transform : scale(0.5);*/
@@ -217,7 +216,7 @@ padding: 0 0.4rem;
   }
   @-ms-keyframes myrotate{
     0%{
-      -ms-transform : scale(0.7);
+      -ms-transform : scale(0.9);
     }
     /*50%{*/
       /*-ms-transform : scale(0.5);*/
@@ -228,7 +227,7 @@ padding: 0 0.4rem;
   }
   @-o-keyframes myrotate{
     0%{
-      -o-transform :  scale(0.7);
+      -o-transform :  scale(0.9);
     }
     /*50%{*/
       /*-o-transform :  scale(0.5);*/
@@ -239,7 +238,7 @@ padding: 0 0.4rem;
   }
   @keyframes myrotate{
     0%{
-      transform : scale(0.7);
+      transform : scale(0.9);
     }
     /*50%{*/
       /*transform : scale(0.5);*/

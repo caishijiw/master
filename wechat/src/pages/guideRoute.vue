@@ -11,21 +11,21 @@
         </div>
       </div>
       <div class=" router-item" v-for="(item,index) in routerItemArray">
-        <div class="step-line-wrap">
-          <img :src="imgSrc" alt="">
-        </div>
-        <div class="router-item-content">
-          <span class="router-item-title">{{item.name}}</span>
-          <span class="view-detail" @click="viewDetail(item)">查看详情 ></span>
-          <div class="spot-content">
-            <div class="img-wrap">
-              <img :src="item.imgSrc" alt="">
-            </div>
-            <div class="spot-discribe">
-              {{item.introduce}}
-            </div>
-          </div>
-        </div>
+      <div class="step-line-wrap">
+      <img :src="imgSrc" alt="">
+      </div>
+      <div class="router-item-content">
+      <span class="router-item-title">{{item.name}}</span>
+      <span class="view-detail" @click="viewDetail(item)">查看详情 ></span>
+      <div class="spot-content">
+      <div class="img-wrap">
+      <img :src="item.imgSrcArray[0]" alt="">
+      </div>
+      <div class="spot-discribe">
+      {{item.introduce}}
+      </div>
+      </div>
+      </div>
 
       </div>
 
@@ -35,55 +35,31 @@
 </template>
 
 <script>
+
   export default {
+
     name: "guideRoute",
     data() {
       return {
-        imgSrc:'static/images/step.png',
-        routerItemArray: [
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-
-          {
-            name: '延园',
-            imgSrc:'static/images/galleryjpg.jpg',
-            introduce: '介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍'
-          },
-        ]
+        imgSrc: 'static/images/step.png',
+        routerItemArray: this.$store.state.routerArray
       }
     },
-    mounted(){
-      document.title='旅游路线'
+    created() {
+
+
+    },
+    mounted() {
+      document.title = '旅游路线';
+      let that=this;
     },
     methods: {
-      viewDetail() {
+      viewDetail(item) {
         this.$router.push({
-          path: '/attractionsDetails'
+          path: '/attractionsDetails',
+          query:{
+            obj:JSON.stringify(item)
+          }
         })
       }
     }
@@ -91,9 +67,10 @@
 </script>
 
 <style scoped>
-html,body{
-  font-size: 37.5px ;
-}
+  html, body {
+    font-size: 37.5px;
+  }
+
   .wrap {
     width: 100%;
     min-height: 100%;
@@ -129,6 +106,7 @@ html,body{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+
   .step-line-wrap:after {
     content: "";
     background: #9BDCE9;
@@ -140,36 +118,43 @@ html,body{
     bottom: 0;
     right: 0;
   }
+
   .step-line-wrap img {
     width: 0.426rem;
     height: auto;
   }
+
   .router-item-title {
     font-size: 0.373rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
     line-height: 0.3rem;
   }
+
   .router-item {
     height: 3.3rem;
     width: 100%;
   }
+
   .router-title.router-item {
     height: 1.5rem;
   }
+
   .view-detail {
     font-size: 0.32rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(48, 154, 159, 1);
     line-height: 0.44rem;
     float: right;
   }
+
   .spot-content {
     width: 100%;
     margin-top: 0.2rem;
   }
+
   .spot-content .img-wrap {
     width: 2.13rem;
     height: 2.13rem;
@@ -179,15 +164,16 @@ html,body{
     overflow: hidden;
     float: left;
   }
+
   .spot-content .img-wrap img {
     width: 100%;
     height: 100%;
   }
+
   .spot-discribe {
     width: calc(100% - 2.13rem);
     height: 100%;
     font-size: 0.32rem;
-    font-family: PingFangSC-regular;
     font-weight: 400;
     color: rgba(102, 102, 102, 1);
     line-height: 0.44rem;

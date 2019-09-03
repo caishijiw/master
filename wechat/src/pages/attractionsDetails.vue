@@ -1,8 +1,8 @@
 <template>
   <div class="wrap">
     <div class="spot-name">
-      <img src="../../static/images/timg.jpg" alt="">
-      <div class="mask"> {{spotName}}</div>
+      <img :src="spotobj.imgSrcArray[0]" alt="">
+      <div class="mask"> {{spotobj.name}}</div>
     </div>
     <!--景点内容-->
     <div class="spot-content">
@@ -11,28 +11,22 @@
         <div class="gallery-wrap">
           <div class="gallery-content">
             <div class="imgs-wrap" :style="{'width':width }">
-              <div class="img-item" v-for="(item,index) in imgArray" :key="index">
-                <img :src="item" alt="">
-              </div>
+                <img  v-for="(item,index) in spotobj.imgSrcArray" :key="index" :src="item" alt=""  class="img-item">
             </div>
           </div>
         </div>
       </div>
       <div class="spot-content-item">
         <span class="item-title margin-bottom">景点简介</span>
-        <div class="spot-detail-introduction">
-          三台阁分为五层，高度大约为30米，具有典型的徽派建筑特色。“三台阁”匾额是由著名的书法家沈鹏先生所题写。<br>
-          三台阁始建于明朝崇祯十五年，由当涂人曹履吉捐资建造的。三台阁的历史悠久，历经了清顺治、康熙、雍正、乾隆四个朝代，大约有120多年，到了乾隆年间毁于兵火，今天的三台阁是1999年在原址上修复而成。
-        </div>
-        <span class="address">地址: <i>地址地址地址地址地址地址</i> </span>
+        <div class="spot-detail-introduction" v-html="spotobj.introduce"></div>
+        <span class="address">地址: <i>{{spotobj.address}}</i> </span>
 
       </div>
       <div class="spot-content-item">
         <span class="item-title margin-bottom">周边推荐</span>
         <div class="recommended-wrap">
-        <strong class="recommended">景点名称</strong>
-        <strong class="recommended">景点名称</strong>
-        <strong class="recommended">景点名称</strong>
+        <strong class="recommended" v-for="(it,index) in spotobj.surrounding">{{it}}</strong>
+
         </div>
       </div>
     </div>
@@ -44,19 +38,15 @@
     name: "attractionsDetails",
     data() {
       return {
-        spotName: '三台阁',
+        spotobj:{},
         width: 0,
-        imgArray: [
-         'static/images/galleryjpg.jpg',
-          'static/images/galleryjpg.jpg',
-          'static/images/galleryjpg.jpg',
-          'static/images/galleryjpg.jpg',
-        ]
       }
     },
     mounted() {
+      this.spotobj=JSON.parse(this.$route.query. obj)
+      console.log(this.spotobj)
       document.title='景点详情'
-      var allimgWidth = this.imgArray.length * 2.72 + 'rem'
+      var allimgWidth = this.spotobj.imgSrcArray.length * 2.72 + 'rem'
       this.width = allimgWidth;
 
     }
@@ -71,7 +61,7 @@
   .spot-name {
     width: 100%;
     height: 2.13rem;
-    background: url("../../static/images/timg.jpg") center no-repeat;
+    background: url("https://image.supconit.net/ranxiting1.png") center no-repeat;
     position: relative;
     background-size: 100% auto;
     margin-bottom: 0.32rem;
@@ -91,7 +81,7 @@
     top: 0;
     left: 0;
     font-size: 0.533rem;
-    font-family: PingFangSC-Medium;
+
     font-weight: 500;
     color: rgba(255, 255, 255, 1);
     line-height: 2.13rem;
@@ -110,8 +100,8 @@
 
   .item-title {
     font-size: 0.373rem;
-    font-family:PingFangSC-Medium;
-    font-weight: 500;
+
+    font-weight: 550;
     color: rgba(72, 72, 72, 1);
     line-height: 0.53rem;
     margin-bottom: 0.13rem;
@@ -164,7 +154,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 0.32rem;
-    font-family: PingFangSC-regular;
+
     font-weight: 400;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -181,7 +171,7 @@
     display: block;
     color: #484848;
     font-size: 0.32rem;
-    font-family: PingFangSC-Medium;
+
     font-weight: 500;
     color: rgba(72, 72, 72, 1);
     line-height: 0.44rem;
@@ -191,11 +181,11 @@
   .address i {
     color: #666666;
     font-style: normal;
-    font-family: PingFangSC-regular;
+
   }
   .recommended{
     font-size: 0.32rem;
-    font-family:PingFangSC-Medium;
+
     font-weight:500;
     color:rgba(48,154,159,1);
     line-height:0.44rem;

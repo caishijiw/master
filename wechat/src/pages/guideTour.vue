@@ -18,7 +18,7 @@
           <img src="../../static/images/Navigation.png" alt />
 
         </div>
-        <div style="width:91%;margin:0 auto;padding-bottom:0.373rem;">
+        <div style=" width:91%;margin:0 auto;padding-bottom:0.373rem;">
           <div class="parkName">{{name}}</div>
           <div class="parkInfo">
             <div class="park_image">
@@ -351,7 +351,6 @@ span {
 .parkName {
   text-align: initial;
   font-size: 0.426rem;
-  font-family: SourceHanSansCN;
   font-weight: 500;
   color: rgba(66, 73, 82, 1);
   line-height: 0.64rem;
