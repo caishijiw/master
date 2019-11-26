@@ -12,14 +12,14 @@
       </div>
       <div class=" router-item" v-for="(item,index) in routerItemArray">
       <div class="step-line-wrap">
-      <img :src="imgSrc" alt="">
+      <img :src="imgSrc" alt="" >
       </div>
       <div class="router-item-content">
       <span class="router-item-title">{{item.name}}</span>
       <span class="view-detail" @click="viewDetail(item)">查看详情 ></span>
       <div class="spot-content">
       <div class="img-wrap">
-      <img :src="item.imgSrcArray[0]" alt="">
+      <img :src="item.imgSrcArray[0]" alt="" :preview="index">
       </div>
       <div class="spot-discribe">
       {{item.introduce}}
@@ -52,6 +52,8 @@
     mounted() {
       document.title = '旅游路线';
       let that=this;
+      //  图片预览插件异步更新
+      that.$previewRefresh()
     },
     methods: {
       viewDetail(item) {

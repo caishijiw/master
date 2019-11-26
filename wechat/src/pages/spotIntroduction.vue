@@ -22,7 +22,7 @@
     <div class="other-science">
       <div class="each_science" v-for="(item,index) in scienceArray.slice(5,scienceArray.length)" :key="index">
         <span class="science-img">
-          <img :src="item.imgSrcArray[0]" alt />
+          <img :src="item.imgSrcArray[0]" alt   :preview="index"/>
         </span>
         <div class="science-introduce">
           <div class="introduce-top">
@@ -58,7 +58,8 @@ export default {
     };
   },
   mounted(){
-    document.title='景点概览'
+    document.title='景点概览';
+    this.$previewRefresh();
   },
   methods:{
     viewDetail(item){

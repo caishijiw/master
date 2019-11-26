@@ -22,7 +22,7 @@
           <div class="parkName">{{name}}</div>
           <div class="parkInfo">
             <div class="park_image">
-              <img src="https://cn.vuejs.org/images/logo.png" alt />
+              <img src="https://image.supconit.net/cuiluowan3.png" alt   preview="1" />
             </div>
             <div class="park_flex">{{introduce}}</div>
           </div>
@@ -88,6 +88,8 @@ export default {
   mounted() {
     this.center();
     document.title='导游导览'
+  //  图片预览插件异步更新
+    this.$previewRefresh()
   },
   methods: {
     guanguang() {
@@ -208,28 +210,28 @@ export default {
       var allmarkers = [
         {
           icon: icon,
-          position: [116.205467, 39.907761],
-          name: "采石矶高端停车场1",
-          introduce: "如同肉体推特热特太热太热热特热热特他人更方便发的",
+          position: [118.458918,31.649954],
+          name: "古栈道",
+          introduce: "古栈道南起横江馆、三元洞，北通蜗牛尾，蜿蜒于采石翠螺山西侧的临江悬崖峭壁之中，总长约为810米。整个栈道呈带状布置，依山就势，沿途设有铁索桥、拱桥、穿山U形隧洞、观景台等景点。",
           money: "10",
           car: "20",
           index: 0
         },
         {
           icon: icon,
-          position: [116.368904, 39.913423],
-          name: "采石矶高端停车场2",
-          introduce: "郭德纲发个电饭锅电饭锅的咕咚咕咚发广告大富大贵广泛的",
+          position: [118.458264,31.649141],
+          name: "翠螺湾",
+          introduce: "翠螺湾位于采石矶风景区的西南方，占地面积20万平方米，它依水傍山、景色秀丽，有垂钓、烧烤、水上娱乐、水杉林等，园区以山水园林为基调，亭台水榭、鱼池潭影交错相映。景点错落有致，布局紧凑协调，园内的牡丹园是其中的点睛之笔",
           money: "105",
           car: "205",
           index: 1
         },
         {
           icon: icon,
-          position: [116.305467, 39.807761],
-          name: "采石矶高端停车场3",
+          position: [118.463886,31.651443],
+          name: "延园",
           introduce:
-            "sddsdsdsds阿达打算打算打算的撒大大大时代大厦达大师大师达撒打算打算打底衫",
+            "延者，其意义是为了更好的承延中国灿烂悠久的历史，是中国传统诗歌文化，林散之书法艺术的延伸之意。他占地3252平方米，建筑面积1200平方米，是一个江南院落式建筑风格的庭院。",
           money: "103",
           car: "202",
           index: 2
@@ -332,7 +334,7 @@ span {
 }
 .card {
   width: 100%;
-  height: 5.7rem;
+  height: 6rem;
   background-color: #fff;
   position: absolute;
   bottom: 0;
@@ -427,9 +429,10 @@ span {
   height: 1.5rem;
   border-top: 1px dashed rgba(218, 218, 218, 1);
   margin: 0 auto;
+  text-align: center;
 }
 .footer > .caidan {
-  width: 24.2%;
+  width: 24%;
   height: 100%;
   display: inline-block;
 }

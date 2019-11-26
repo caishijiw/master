@@ -10,7 +10,6 @@ Vue.config.productionTip = false
  */
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import 'vant/lib/icon/local.css';
 Vue.use(Vant);
 /**
  *引入css
@@ -31,11 +30,13 @@ import 'swiper/dist/css/swiper.css'
 /**
  *引入vconsole
  */
-import VConsole from 'vconsole'
-var vConsole = new VConsole()
-import axios from 'axios'
-Vue.prototype.axios=axios;
+
 import Vuex from 'vuex';
+// import VConsole from 'vconsole'
+// var vConsole = new VConsole()
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
 import store from './store/index'
 //引入photo-swiper
 import preview from 'vue-photo-preview'

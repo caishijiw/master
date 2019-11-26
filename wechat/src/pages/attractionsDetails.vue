@@ -11,7 +11,7 @@
         <div class="gallery-wrap">
           <div class="gallery-content">
             <div class="imgs-wrap" :style="{'width':width }">
-                <img  v-for="(item,index) in spotobj.imgSrcArray" :key="index" :src="item" alt=""  class="img-item">
+                <img  v-for="(item,index) in spotobj.imgSrcArray" :key="index" :src="item" alt=""  class="img-item" preview="1">
             </div>
           </div>
         </div>
@@ -48,7 +48,8 @@
       document.title='景点详情'
       var allimgWidth = this.spotobj.imgSrcArray.length * 2.72 + 'rem'
       this.width = allimgWidth;
-
+      //  图片预览插件异步更新
+      this.$previewRefresh()
     }
   }
 </script>
