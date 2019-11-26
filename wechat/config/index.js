@@ -10,36 +10,12 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/customer': {
-        target: "http://www.supconit.net",
+      '*': {
+        target: "http://220.178.232.19:9999",
         changeOrigin: true,
         pathRewrite: {}
       },
-      '/maintenance': {
-        target: "http://www.supconit.net",
-        changeOrigin: true,
-        pathRewrite: {}
-      },
-      '/search': {
-        target: "http://www.supconit.net",
-        changeOrigin: true,
-        pathRewrite: {}
-      },
-      '/order': {
-        target: "http://www.supconit.net",
-        changeOrigin: true,
-        pathRewrite: {}
-      },
-      '/shop': {
-        target: "http://www.supconit.net",
-        changeOrigin: true,
-        pathRewrite: {}
-      },
-      '/runtime': {
-        target: "http://www.supconit.net",
-        changeOrigin: true,
-        pathRewrite: {}
-      },
+
 
 
     },
